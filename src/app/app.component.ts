@@ -7,4 +7,16 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'BIT-Angular-firebase';
+
+  answers : Array<any> = [
+    "Answer 1",
+    "Answer 2",
+    "Answer 3",
+    "Answer 4",
+  ];
+
+  constructor () {
+    
+  }
+
 }

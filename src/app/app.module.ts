@@ -5,6 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -12,7 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ProgressbarModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
