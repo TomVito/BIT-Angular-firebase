@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,7 @@ export class AppComponent {
   public currentQuestion : number = 0;
   public progress : number = 0;
 
-  constructor () {
+  constructor (db: AngularFireDatabase) {
   
   }
 

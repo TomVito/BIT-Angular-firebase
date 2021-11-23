@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bit-angular-quiz-9481a": {
+      "hosting": {
+        "BIT-Angular-firebase": [
+          "bit-angular-quiz-9481a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bit-angular-quiz-9481a"
+  }
+}
