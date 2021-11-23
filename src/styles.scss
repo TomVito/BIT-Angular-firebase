@@ -9,12 +9,11 @@ $color-grey: #3c3c3c;
 $color-black: #151515;
 
 body {
-    font-family: "Jost", sans-serif;
     color: $color-black;
 }
 
 .text {
-   &-red {
+    &-red {
        color: $color-red;
     }
     &-grey {
@@ -82,5 +81,31 @@ body {
         .card {
             background: $color-red;
         }
+    }
+}
+
+.quiz-answers-container {
+    @include media-breakpoint-down(md) {
+        padding-bottom: 250px;
+    }
+}
+
+.quiz-actions {
+    background: $color-grey;
+    padding: 20px 30px;
+    width: 90%;
+    border-radius: 5px;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 5%;
+    &_icon {
+        position: absolute;
+        left: 0;
+        bottom: 100%;
+    }
+
+    .btn {
+        font-size: 18px;
     }
 }
