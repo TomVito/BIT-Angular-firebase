@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -9,19 +10,16 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 export class AppComponent {
   title = 'BIT-Angular-firebase';
 
-  public answers : Array<any> = [
-    "Answer 1",
-    "Answer 2",
-    "Answer 3",
-    "Answer 4",
-  ];
-
+  public answers : Array<any> = [];
   public today : any = new Date();
   public currentQuestion : number = 0;
   public progress : number = 0;
 
   constructor (db: AngularFireDatabase) {
-  
+    // this.answersFromDatabase = db.list('answers').valueChanges();
+    db.list('answers').valueChanges().subscribe((data : any) => {
+      this.answers = data;
+    });
   }
 
   nextQuestion() {

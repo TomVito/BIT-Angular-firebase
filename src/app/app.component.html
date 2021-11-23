@@ -17,13 +17,13 @@
             <div class="row">
               <div class="col-sm-6 mb-3 quiz-answer" [class.selected]="item.key == '1'" 
               *ngFor="let item of answers | keyvalue">
-                <div class="card" [class.shadow]="item.key == '1'">
+                <div class="card">
                   <div class="card-body d-flex flex-nowrap align-items-center">
                     <div class="number quiz-answer_number">
                       {{ item.key }}
                     </div>
                     <div class="quiz-answer_text">
-                      {{ item.value }}
+                      {{ item.value | lowercase }}
                     </div>
                   </div>
                 </div>
