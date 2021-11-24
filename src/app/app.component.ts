@@ -8,23 +8,30 @@ import { Observable } from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'BIT-Angular-firebase';
+  public title = 'BIT-Angular-firebase';
 
+  // public answersFromDatabase : Observable<any[]>;
   public answers : Array<any> = [];
+  public quiz : any = {};
+  public quizQuestions : Array<any> = [];
   public today : any = new Date();
   public currentQuestion : number = 0;
   public progress : number = 0;
 
   constructor (db: AngularFireDatabase) {
     // this.answersFromDatabase = db.list('answers').valueChanges();
-    db.list('answers').valueChanges().subscribe((data : any) => {
-      this.answers = data;
+    db.object('quizes/abc').valueChanges().subscribe((data : any ) => {
+      this.quiz = data;
+      this.quizQuestions = data.questions;
     });
   }
 
   nextQuestion() {
-   this.currentQuestion++;
-   this.progress = this.currentQuestion / this.answers.length * 100;
+    this.currentQuestion++;
+    let questionsCount = Object.keys(this.quizQuestions).length;
+
+    this.progress = (this.currentQuestion) / questionsCount  * 100;
+    console.log("Progress: " + this.progress);
   }
 
 }

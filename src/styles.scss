@@ -4,108 +4,103 @@
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
 
-$color-red: #f42e35;
-$color-grey: #3c3c3c;
-$color-black: #151515;
+$color-red : #f42e35;
+$color-gray : #3c3c3c;
+$color-black : #151515;
 
 body {
-    color: $color-black;
+  color: $color-black;
 }
 
 .text {
-    &-red {
-       color: $color-red;
-    }
-    &-grey {
-        color: $color-grey; 
-    }
-    &-black {
-        color: $color-black;
-    }
+
+  &-red {
+    color: $color-red;
+  }
+
+  &-gray {
+    color: $color-gray;
+  }
+
+  &-black {
+    color: $color-black;
+  }
 }
 
-// .text-red {
-//     $color-red: #f42e35;
-// }
-
-// .text-grey {
-//     $color-grey: #3c3c3c;
-// }
-
-// .text-black {
-//     $color-black: #151515;
-// }
-
 .quiz {
-    min-height: 100vh;
-    background-image: url('./assets/img/qbg.jpeg');
-    background-size: cover;
-    background-position: center center;
+  min-height: 100vh;
+  background-image: url('assets/img/qbg.jpeg');
+  background-size: cover;
+  background-position: center center;
 
-    .quiz-wrapper {
-        padding: 90px 30px;
-    }
-
+  .quiz-wrapper {
+    padding: 90px 30px;
+  }
 }
 
 .quiz-title {
-    &_subtitle {
-        color: $color-red;
-    }
 
-    &_description {
-        font-weight: 500;
-    }
+  &__subtitle {
+    color: $color-red;
+  }
+
+  &__description {
+    font-weight: 500;
+  }
 }
 
 .quiz-answer {
-    cursor: pointer;
-    &_number {
-        font-size: 30px;
-        width: 50px;
-        border: 1px solid $color-grey;
-        text-align: center;
-        margin-right: 40px;
-        background: $white;
-        font-weight: 700;
+  cursor: pointer;
+
+  &__number {
+    font-size: 30px;
+    width: 50px;
+    border: 1px solid $color-gray;
+    text-align: center;
+    margin-right: 40px;
+    background: $white;
+    font-weight: 700;
+  }
+
+  &__text {
+    font-size: 23px;
+    font-weight: 600;
+    color: $color-gray;
+  }
+
+  &.selected {
+    .quiz-answer__text {
+      color: $white;
     }
-    &_text {
-        font-size: 23px;
-        font-weight: 600;
-        color: $color-grey;
+
+    .card {
+      background: $color-red;
     }
-    &.selected {
-        .quiz-answer_text {
-            color: $white;
-        }
-        .card {
-            background: $color-red;
-        }
-    }
+  }
 }
 
 .quiz-answers-container {
-    @include media-breakpoint-down(md) {
-        padding-bottom: 250px;
-    }
+  @include media-breakpoint-down(md) {
+    padding-bottom: 250px;
+  }
 }
 
 .quiz-actions {
-    background: $color-grey;
-    padding: 20px 30px;
-    width: 90%;
-    border-radius: 5px;
-    margin: 0 auto;
-    position: fixed;
-    bottom: 0;
-    left: 5%;
-    &_icon {
-        position: absolute;
-        left: 0;
-        bottom: 100%;
-    }
+  background: $color-gray;
+  padding: 20px 30px;
+  width: 90%;
+  margin: 0 auto;
+  position: fixed;
+  bottom: 0;
+  left: 5%;
 
-    .btn {
-        font-size: 18px;
-    }
+  &__icon {
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+  }
+
+  .btn {
+    font-size: 18px;
+  }
 }
