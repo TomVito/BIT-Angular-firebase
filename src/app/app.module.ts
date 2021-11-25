@@ -11,12 +11,16 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
+import { QuizListComponent } from './components/quiz-list/quiz-list.component';
+import { QuizComponent } from './components/quiz/quiz.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    QuizListComponent,
+    QuizComponent
   ],
   imports: [
     BrowserModule,

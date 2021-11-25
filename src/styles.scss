@@ -1,106 +1,30 @@
-/* Importing Bootstrap SCSS file. */
+/* Importing Datepicker SCSS file. */
 @import "~bootstrap/scss/bootstrap";
 
 /* Importing Datepicker SCSS file. */
 @import "~ngx-bootstrap/datepicker/bs-datepicker";
 
-$color-red : #f42e35;
-$color-gray : #3c3c3c;
-$color-black : #151515;
+@import "variables";
 
 body {
-  color: $color-black;
-}
-
-.text {
-
-  &-red {
-    color: $color-red;
-  }
-
-  &-gray {
-    color: $color-gray;
-  }
-
-  &-black {
+    /* Nustatome pagrindine teksto spalva visai svetainei */
     color: $color-black;
   }
-}
-
-.quiz {
-  min-height: 100vh;
-  background-image: url('assets/img/qbg.jpeg');
-  background-size: cover;
-  background-position: center center;
-
-  .quiz-wrapper {
-    padding: 90px 30px;
-  }
-}
-
-.quiz-title {
-
-  &__subtitle {
-    color: $color-red;
-  }
-
-  &__description {
-    font-weight: 500;
-  }
-}
-
-.quiz-answer {
-  cursor: pointer;
-
-  &__number {
-    font-size: 30px;
-    width: 50px;
-    border: 1px solid $color-gray;
-    text-align: center;
-    margin-right: 40px;
-    background: $white;
-    font-weight: 700;
-  }
-
-  &__text {
-    font-size: 23px;
-    font-weight: 600;
-    color: $color-gray;
-  }
-
-  &.selected {
-    .quiz-answer__text {
-      color: $white;
+  
+  .text {
+  
+    // Sugeneruojama: .text-red
+    &-red {
+      color: $color-red;
     }
-
-    .card {
-      background: $color-red;
+  
+    // Sugeneruojama: .text-gray
+    &-gray {
+      color: $color-gray;
+    }
+  
+    // Sugeneruojama: .text-black
+    &-black {
+      color: $color-black;
     }
   }
-}
-
-.quiz-answers-container {
-  @include media-breakpoint-down(md) {
-    padding-bottom: 250px;
-  }
-}
-
-.quiz-actions {
-  background: $color-gray;
-  padding: 20px 30px;
-  width: 90%;
-  margin: 0 auto;
-  position: fixed;
-  bottom: 0;
-  left: 5%;
-
-  &__icon {
-    position: absolute;
-    left: 0;
-    bottom: 100%;
-  }
-
-  .btn {
-    font-size: 18px;
-  }
-}

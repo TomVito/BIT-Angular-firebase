@@ -1,0 +1,73 @@
+<section class="quiz">
+    <div class="container quiz-answers-container">
+      <div class="row">
+        <div class="col-12 quiz-wrapper">
+          <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+              <div class="quiz-title text-center">
+                <div *ngIf="quiz.title">
+                  Quiz Title: {{ quiz.title }}
+                </div>
+                <span>Time: {{ today |  date:'shortTime' }}</span>
+                <div class="quiz-title__subtitle">Question 1</div>
+                <h1 class="fw-bold">Start Quiz</h1>
+                <p class="quiz-title__description">
+                  User interface design. One Awesome Flat Ui Kit in Psd format. The pack ... Quiz App is a mobile UI kit
+                  created using Sketch and Photoshop, aimed to help you kick start your next mobile quiz or trivia project
+                </p>
+              </div>
+            </div>
+            <div class="col-lg-8 offset-lg-2">
+              <div class="question" *ngFor="let question of quizQuestions | keyvalue; let i = index">
+                <div class="question__wrapper" *ngIf="i == currentQuestion">
+                  <div class="row">
+                    <div class="col-12">
+                      <h2>
+                        {{ question.value.title  }} ID: {{ i }}
+                      </h2>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6 mb-3 quiz-answer"
+                    *ngFor="let answer of question.value.answers | keyvalue">
+                      <div class="card">
+                        <div class="card-body d-flex flex-nowrap align-items-center">
+                          <div class="quiz-answer__number">
+                            {{ answer.key }}
+                          </div>
+                          <div class="quiz-answer__text">
+                            {{ answer.value.title }}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="quiz-actions">
+      <div class="quiz-actions__icon">
+        <img src="assets/img/bq1.png" />
+      </div>
+      <div class="row align-items-center">
+        <div class="col-3">
+          <button class="btn btn-lg btn-light text-uppercase fw-bold" (click)="previousQuestion()">
+            Previous Question
+          </button>
+        </div>
+        <div class="col-6">
+          <progressbar [value]="progress" type="danger" [striped]="true"></progressbar>
+        </div>
+        <div class="col-3 text-end">
+          <button class="btn btn-lg btn-light text-uppercase fw-bold" (click)="nextQuestion()">
+            Next Question
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>

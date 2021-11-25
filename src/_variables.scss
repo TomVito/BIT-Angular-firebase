@@ -1,0 +1,12 @@
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+$color-red : #f42e35;
+$color-gray : #3c3c3c;
+$color-black : #151515;

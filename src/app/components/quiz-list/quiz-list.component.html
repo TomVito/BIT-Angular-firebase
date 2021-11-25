@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>
+                All Quizes
+            </h1>
+            <div class="card mb-3" *ngFor="let quiz of allQuizes | keyvalue">
+                <div class="card-body">
+                    {{ quiz.value.title }}
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-success" routerLink="/quiz/{{ quiz.key }}">
+                        Go To Quiz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
