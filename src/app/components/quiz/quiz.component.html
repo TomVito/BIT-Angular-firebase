@@ -1,4 +1,4 @@
-<section class="quiz">
+<section class="quiz" *ngIf=!showResults>
     <div class="container quiz-answers-container">
       <div class="row">
         <div class="col-12 quiz-wrapper">
@@ -22,22 +22,22 @@
                 <div class="question__wrapper" *ngIf="i == currentQuestion">
                   <div class="row">
                     <div class="col-12">
-                      <h2>
-                        {{ question.value.title  }} ID: {{ i }}
-                      </h2>
-                    </div>
+                    <h2>
+                      {{ question.value.title  }} ID: {{ i }}
+                    </h2>
                   </div>
-                  <div class="row">
-                    <div class="col-sm-6 mb-3 quiz-answer"
-                    *ngFor="let answer of question.value.answers | keyvalue">
-                      <div class="card">
-                        <div class="card-body d-flex flex-nowrap align-items-center">
-                          <div class="quiz-answer__number">
-                            {{ answer.key }}
-                          </div>
-                          <div class="quiz-answer__text">
-                            {{ answer.value.title }}
-                          </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 mb-3 quiz-answer"
+                  [class.selected]="answer.key == selectedAnswerKey"
+                  *ngFor="let answer of question.value.answers | keyvalue">
+                    <div class="card" (click)="userSelectedAnswer(question, answer)">
+                      <div class="card-body d-flex flex-nowrap align-items-center">
+                        <div class="quiz-answer__number">
+                          {{ answer.key }}
+                        </div>
+                        <div class="quiz-answer__text">
+                          {{ answer.value.title }}
                         </div>
                       </div>
                     </div>
@@ -49,25 +49,44 @@
         </div>
       </div>
     </div>
-  
-    <div class="quiz-actions">
-      <div class="quiz-actions__icon">
-        <img src="assets/img/bq1.png" />
+  </div>
+  <div class="quiz-actions">
+    <div class="quiz-actions__icon">
+      <img src="assets/img/bq1.png" />
+    </div>
+    <div class="row align-items-center">
+      <div class="col-3">
+        <button class="btn btn-lg btn-light text-uppercase fw-bold"
+        [disabled]="currentQuestion < 1"
+        (click)="previousQuestion()">
+          Previous Question
+        </button>
       </div>
-      <div class="row align-items-center">
-        <div class="col-3">
-          <button class="btn btn-lg btn-light text-uppercase fw-bold" (click)="previousQuestion()">
-            Previous Question
-          </button>
-        </div>
-        <div class="col-6">
-          <progressbar [value]="progress" type="danger" [striped]="true"></progressbar>
-        </div>
-        <div class="col-3 text-end">
-          <button class="btn btn-lg btn-light text-uppercase fw-bold" (click)="nextQuestion()">
-            Next Question
-          </button>
+      <div class="col-6">
+        <progressbar [value]="progress" type="danger" [striped]="true"></progressbar>
+      </div>
+      <div class="col-3 text-end">
+        <button
+        *ngIf="selectedAnswerKey !== null"
+        class="btn btn-lg btn-light text-uppercase fw-bold" (click)="nextQuestion()">
+          Next Question
+        </button>
+        <button
+        *ngIf="selectedAnswerKey === null"
+        [disabled]="selectedAnswerKey === null"
+        class="btn btn-lg btn-light text-uppercase fw-bold">
+         Select Answer
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+    <section *ngIf="showResults" class="quiz">
+      <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <img src="assets/img/th.png">
         </div>
       </div>
     </div>
-  </section>
+</section>
