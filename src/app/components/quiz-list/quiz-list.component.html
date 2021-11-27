@@ -9,8 +9,11 @@
                     {{ quiz.value.title }}
                 </div>
                 <div class="card-footer">
-                    <a class="btn btn-success" routerLink="/quiz/{{ quiz.key }}">
+                    <a class="btn btn-primary me-2" routerLink="/quiz/{{ quiz.key }}">
                         Go To Quiz
+                    </a>
+                    <a class="btn btn-secondary" routerLink="/quiz/{{ quiz.key }}/edit">
+                        Edit Quiz
                     </a>
                 </div>
             </div>

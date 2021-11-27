@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row">
+      <div class="col-6 offset-3 mt-3">
+        <div class="text-center">
+          <h1>Create new quiz!</h1>
+        </div>
+  
+        <div>
+          <form (ngSubmit)="createQuiz(quizForm)"
+          #quizForm="ngForm"
+          >
+            <div class="row">
+              <div class="col-6">
+                <input type="text"
+                placeholder="Quiz Title *"
+                [(ngModel)]='quiz.title'
+                name="title"
+                required
+                class="form-control" />
+              </div>
+  
+              <div class="col-6">
+                <input type="submit" class="btn btn-success">
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+</div>

@@ -1,4 +1,11 @@
 <section class="quiz" *ngIf=!showResults>
+  <div class="row m-0">
+    <div class="col-12 text-center countdown d-flex justify-content-center">
+      <h3 class="me-3">Time Left: <countdown #cd [config]="{ leftTime: 300, format: 'm:s' }" (event)="handleEvent($event)">
+      </countdown>
+      </h3>
+    </div>
+  </div>
     <div class="container quiz-answers-container">
       <div class="row">
         <div class="col-12 quiz-wrapper">
@@ -81,12 +88,23 @@
     </div>
   </div>
 </section>
-    <section *ngIf="showResults" class="quiz">
-      <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <img src="assets/img/th.png">
+<section *ngIf="showResults"  class="quiz">
+  <div class="container">
+    <div class="row">
+      <div class="col-6 offset-3">
+        <div class="card mt-3">
+          <div class="card-header">
+            You have succesfully finished the quiz! 🙋‍♂️
+          </div>
+          <div class="card-body text-center">
+            <h1>Your Score: {{ userScore }} / {{ questionCount }}</h1>
+            <img src="assets/img/th.png" class="thank-you-image mb-3" />
+            <div>
+              <a routerLink="/" class="btn btn-primary">< Back To All Quizes</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
 </section>
